@@ -4,24 +4,24 @@ rules:
   - DOMAIN-SUFFIX,t.me,Telegram
   - IP-CIDR,91.108.0.0/16,Telegram,no-resolve
   - IP-CIDR,149.154.160.0/20,Telegram,no-resolve
-  - DOMAIN-SUFFIX,whatsapp.com,WhatsApp
-  - DOMAIN-SUFFIX,whatsapp.net,WhatsApp
-  - DOMAIN-SUFFIX,wa.me,WhatsApp
-  - DOMAIN-SUFFIX,whatsapp.cc,WhatsApp
-  - DOMAIN-SUFFIX,whatsapp.info,WhatsApp
-  - DOMAIN-SUFFIX,whatsapp.org,WhatsApp
-  - DOMAIN-SUFFIX,whatsapp.tv,WhatsApp
-  - DOMAIN-SUFFIX,whatsappbrand.com,WhatsApp
-  - DOMAIN,graph.whatsapp.com,WhatsApp
-  - DOMAIN,cdn.whatsapp.net,WhatsApp
-  - DOMAIN,g.whatsapp.net,WhatsApp
-  - DOMAIN,static.whatsapp.net,WhatsApp
-  - DOMAIN,mmg.whatsapp.net,WhatsApp
-  - DOMAIN,dit.whatsapp.net,WhatsApp
-  - DOMAIN-KEYWORD,whatsapp,WhatsApp
-  - DOMAIN-SUFFIX,fbcdn.com,WhatsApp
-  - DOMAIN-SUFFIX,fbcdn.net,WhatsApp
-  - DOMAIN-SUFFIX,fbsbx.com,WhatsApp
+  - DOMAIN-SUFFIX,whatsapp.com,WhatsApp-UK
+  - DOMAIN-SUFFIX,whatsapp.net,WhatsApp-UK
+  - DOMAIN-SUFFIX,wa.me,WhatsApp-UK
+  - DOMAIN-SUFFIX,whatsapp.cc,WhatsApp-UK
+  - DOMAIN-SUFFIX,whatsapp.info,WhatsApp-UK
+  - DOMAIN-SUFFIX,whatsapp.org,WhatsApp-UK
+  - DOMAIN-SUFFIX,whatsapp.tv,WhatsApp-UK
+  - DOMAIN-SUFFIX,whatsappbrand.com,WhatsApp-UK
+  - DOMAIN,graph.whatsapp.com,WhatsApp-UK
+  - DOMAIN,cdn.whatsapp.net,WhatsApp-UK
+  - DOMAIN,g.whatsapp.net,WhatsApp-UK
+  - DOMAIN,static.whatsapp.net,WhatsApp-UK
+  - DOMAIN,mmg.whatsapp.net,WhatsApp-UK
+  - DOMAIN,dit.whatsapp.net,WhatsApp-UK
+  - DOMAIN-KEYWORD,whatsapp,WhatsApp-UK
+  - DOMAIN-SUFFIX,fbcdn.com,WhatsApp-UK
+  - DOMAIN-SUFFIX,fbcdn.net,WhatsApp-UK
+  - DOMAIN-SUFFIX,fbsbx.com,WhatsApp-UK
   - DOMAIN-SUFFIX,apple-relay.cloudflare.com,DIRECT
   - DOMAIN-SUFFIX,apple-relay.apple.com,DIRECT
   - DOMAIN-SUFFIX,gateway.icloud.com,DIRECT
