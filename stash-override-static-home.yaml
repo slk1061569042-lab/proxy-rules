@@ -1,0 +1,14 @@
+proxies:
+  - name: "🏠 静态家宽(纯净)"
+    type: vless
+    server: 38.209.123.80
+    port: 51976
+    uuid: b5ef95f9-f80e-4ddc-9166-6690885e948d
+    network: tcp
+    tls: true
+    udp: true
+    client-fingerprint: chrome
+    servername: www.oracle.com
+    reality-opts:
+      public-key: pRP_wngr-71A_6Y3isQYUobhs-MmDYCO5cNZ9WGi5mY
+      short-id: "14"
