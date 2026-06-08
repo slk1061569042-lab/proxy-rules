@@ -1,0 +1,326 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+bind-address: "*"
+mode: rule
+log-level: info
+ipv6: true
+unified-delay: true
+tcp-concurrent: true
+
+dns:
+  enable: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+
+proxies:
+  - name: "🏠 静态家宽(纯净)"
+    type: vless
+    server: 38.209.123.80
+    port: 51976
+    uuid: b5ef95f9-f80e-4ddc-9166-6690885e948d
+    network: tcp
+    tls: true
+    udp: true
+    client-fingerprint: chrome
+    servername: www.oracle.com
+    reality-opts:
+      public-key: pRP_wngr-71A_6Y3isQYUobhs-MmDYCO5cNZ9WGi5mY
+      short-id: "14"
+
+proxy-groups:
+  - name: Kuromis
+    type: select
+    proxies:
+      - "🔒 纯净家宽"
+      - "🏠 静态家宽(纯净)"
+      - DIRECT
+
+  - name: "🔒 纯净家宽"
+    type: fallback
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 5000
+    proxies:
+      - "🏠 静态家宽(纯净)"
+
+  - name: Claude
+    type: fallback
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 5000
+    proxies:
+      - "🏠 静态家宽(纯净)"
+
+  - name: Google
+    type: fallback
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 5000
+    proxies:
+      - "🏠 静态家宽(纯净)"
+
+  - name: OpenAI
+    type: fallback
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 5000
+    proxies:
+      - "🏠 静态家宽(纯净)"
+
+  - name: WhatsApp
+    type: select
+    proxies:
+      - Kuromis
+      - DIRECT
+
+  - name: Telegram
+    type: select
+    proxies:
+      - Kuromis
+      - DIRECT
+
+  - name: Steam
+    type: select
+    proxies:
+      - Kuromis
+      - DIRECT
+
+  - name: PayPal
+    type: select
+    proxies:
+      - Kuromis
+      - DIRECT
+
+  - name: Microsoft
+    type: select
+    proxies:
+      - Kuromis
+      - DIRECT
+
+  - name: Apple
+    type: select
+    proxies:
+      - DIRECT
+      - Kuromis
+
+  - name: BiliBili
+    type: select
+    proxies:
+      - DIRECT
+      - Kuromis
+
+  - name: Netflix
+    type: select
+    proxies:
+      - Kuromis
+      - DIRECT
+
+  - name: Disney
+    type: select
+    proxies:
+      - Kuromis
+      - DIRECT
+
+  - name: TikTok
+    type: select
+    proxies:
+      - DIRECT
+      - Kuromis
+
+  - name: GlobalMedia
+    type: select
+    proxies:
+      - Kuromis
+      - DIRECT
+
+rule-providers:
+  Apple:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical_No_Resolve.yaml
+    interval: 86400
+    path: "./ruleset/Apple.yaml"
+  BiliBili:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili_No_Resolve.yaml
+    interval: 86400
+    path: "./ruleset/BiliBili.yaml"
+  Netflix:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix_No_Resolve.yaml
+    interval: 86400
+    path: "./ruleset/Netflix.yaml"
+  Disney:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney_No_Resolve.yaml
+    interval: 86400
+    path: "./ruleset/Disney.yaml"
+  TikTok:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok_No_Resolve.yaml
+    interval: 86400
+    path: "./ruleset/TikTok.yaml"
+  GlobalMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical_No_Resolve.yaml
+    interval: 86400
+    path: "./ruleset/GlobalMedia.yaml"
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram_No_Resolve.yaml
+    interval: 86400
+    path: "./ruleset/Telegram.yaml"
+  Steam:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam_No_Resolve.yaml
+    interval: 86400
+    path: "./ruleset/Steam.yaml"
+  ChinaMax:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml
+    interval: 86400
+    path: "./ruleset/ChinaMax.yaml"
+
+rules:
+  - DOMAIN-KEYWORD,telegram,Telegram
+  - DOMAIN-KEYWORD,telegra,Telegram
+  - DOMAIN-SUFFIX,t.me,Telegram
+  - IP-CIDR,91.108.0.0/16,Telegram,no-resolve
+  - IP-CIDR,149.154.160.0/20,Telegram,no-resolve
+  - DOMAIN-SUFFIX,whatsapp.com,WhatsApp
+  - DOMAIN-SUFFIX,whatsapp.net,WhatsApp
+  - DOMAIN-SUFFIX,wa.me,WhatsApp
+  - DOMAIN-SUFFIX,whatsapp.cc,WhatsApp
+  - DOMAIN-SUFFIX,whatsapp.info,WhatsApp
+  - DOMAIN-SUFFIX,whatsapp.org,WhatsApp
+  - DOMAIN-SUFFIX,whatsapp.tv,WhatsApp
+  - DOMAIN-SUFFIX,whatsappbrand.com,WhatsApp
+  - DOMAIN,graph.whatsapp.com,WhatsApp
+  - DOMAIN,cdn.whatsapp.net,WhatsApp
+  - DOMAIN,g.whatsapp.net,WhatsApp
+  - DOMAIN,static.whatsapp.net,WhatsApp
+  - DOMAIN,mmg.whatsapp.net,WhatsApp
+  - DOMAIN,dit.whatsapp.net,WhatsApp
+  - DOMAIN-KEYWORD,whatsapp,WhatsApp
+  - DOMAIN-SUFFIX,fbcdn.com,WhatsApp
+  - DOMAIN-SUFFIX,fbcdn.net,WhatsApp
+  - DOMAIN-SUFFIX,fbsbx.com,WhatsApp
+  - DOMAIN-SUFFIX,apple-relay.cloudflare.com,DIRECT
+  - DOMAIN-SUFFIX,apple-relay.apple.com,DIRECT
+  - DOMAIN-SUFFIX,gateway.icloud.com,DIRECT
+  - DOMAIN-SUFFIX,gsa.apple.com,DIRECT
+  - DOMAIN-SUFFIX,identity.apple.com,DIRECT
+  - DOMAIN-SUFFIX,appleid.apple.com,DIRECT
+  - DOMAIN-SUFFIX,iforgot.apple.com,DIRECT
+  - DOMAIN-SUFFIX,setup.icloud.com,DIRECT
+  - DOMAIN-SUFFIX,anthropic.com,Claude
+  - DOMAIN-SUFFIX,claude.ai,Claude
+  - DOMAIN-SUFFIX,claudeusercontent.com,Claude
+  - DOMAIN-KEYWORD,anthropic,Claude
+  - DOMAIN-KEYWORD,claude,Claude
+  - DOMAIN-SUFFIX,aistudio.google.com,Google
+  - DOMAIN-SUFFIX,ai.google.dev,Google
+  - DOMAIN-SUFFIX,generativelanguage.googleapis.com,Google
+  - DOMAIN-SUFFIX,gemini.google.com,Google
+  - DOMAIN-SUFFIX,generativeai.google,Google
+  - DOMAIN-SUFFIX,bard.google.com,Google
+  - DOMAIN-SUFFIX,notebooklm.google.com,Google
+  - DOMAIN-SUFFIX,notebooklm.googleusercontent.com,Google
+  - DOMAIN-SUFFIX,openai.com,OpenAI
+  - DOMAIN-SUFFIX,oaistatic.com,OpenAI
+  - DOMAIN-SUFFIX,oaiusercontent.com,OpenAI
+  - DOMAIN-SUFFIX,chatgpt.com,OpenAI
+  - DOMAIN-SUFFIX,ai.com,OpenAI
+  - DOMAIN-KEYWORD,openai,OpenAI
+  - DOMAIN-SUFFIX,cursor.sh,Kuromis
+  - DOMAIN-SUFFIX,cursor.com,Kuromis
+  - DOMAIN-KEYWORD,cursor,Kuromis
+  - DOMAIN-SUFFIX,midjourney.com,Kuromis
+  - DOMAIN-SUFFIX,suno.com,Kuromis
+  - DOMAIN-SUFFIX,suno.ai,Kuromis
+  - DOMAIN-SUFFIX,huggingface.co,Kuromis
+  - DOMAIN-SUFFIX,perplexity.ai,Kuromis
+  - DOMAIN-SUFFIX,runwayml.com,Kuromis
+  - DOMAIN-SUFFIX,replicate.com,Kuromis
+  - DOMAIN-SUFFIX,openrouter.ai,Kuromis
+  - DOMAIN-SUFFIX,deepseek.com,Kuromis
+  - DOMAIN-SUFFIX,servicewechat.com,DIRECT
+  - DOMAIN-SUFFIX,weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,wx.qq.com,DIRECT
+  - DOMAIN-SUFFIX,mp.weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,weixinbridge.com,DIRECT
+  - DOMAIN-SUFFIX,wx.gtimg.com,DIRECT
+  - DOMAIN-SUFFIX,wx.qlogo.cn,DIRECT
+  - DOMAIN-SUFFIX,short.weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,major.wx.qq.com,DIRECT
+  - DOMAIN-SUFFIX,extshort.weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,wxapp.tc.qq.com,DIRECT
+  - DOMAIN-SUFFIX,api.weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,dldir1.qq.com,DIRECT
+  - DOMAIN-SUFFIX,minorshort.weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,adfilter.imtt.qq.com,DIRECT
+  - DOMAIN-SUFFIX,res.wx.qq.com,DIRECT
+  - DOMAIN-SUFFIX,zjzwfw.gov.cn,DIRECT
+  - DOMAIN-SUFFIX,zj.gov.cn,DIRECT
+  - DOMAIN-SUFFIX,alipay.com,DIRECT
+  - DOMAIN-SUFFIX,alipayobjects.com,DIRECT
+  - DOMAIN-SUFFIX,alicdn.com,DIRECT
+  - DOMAIN-SUFFIX,aliyun.com,DIRECT
+  - DOMAIN-SUFFIX,aliyuncs.com,DIRECT
+  - DOMAIN-SUFFIX,taobao.com,DIRECT
+  - DOMAIN-SUFFIX,tmall.com,DIRECT
+  - DOMAIN-SUFFIX,dingtalk.com,DIRECT
+  - DOMAIN-SUFFIX,seres.cn,DIRECT
+  - DOMAIN-SUFFIX,seres.com.cn,DIRECT
+  - DOMAIN-SUFFIX,seresmotors.com,DIRECT
+  - DOMAIN-SUFFIX,aito.auto,DIRECT
+  - DOMAIN-SUFFIX,sfmc.cn,DIRECT
+  - DOMAIN-SUFFIX,sfrm.cn,DIRECT
+  - DOMAIN-SUFFIX,sfrm.com,DIRECT
+  - DOMAIN-SUFFIX,sfgc.cn,DIRECT
+  - DOMAIN-SUFFIX,sfsc.cn,DIRECT
+  - DOMAIN-SUFFIX,hicar.cn,DIRECT
+  - DOMAIN-SUFFIX,huawei.com,DIRECT
+  - DOMAIN-SUFFIX,huaweicloud.com,DIRECT
+  - DOMAIN-SUFFIX,hicloud.com,DIRECT
+  - DOMAIN-KEYWORD,seres,DIRECT
+  - DOMAIN-KEYWORD,aito,DIRECT
+  - DOMAIN-SUFFIX,steamcontent.com,DIRECT
+  - DOMAIN-SUFFIX,steamstatic.com,DIRECT
+  - DOMAIN-KEYWORD,steamcontent,DIRECT
+  - DOMAIN-KEYWORD,steamcdn,DIRECT
+  - DOMAIN-SUFFIX,store.steampowered.com,Steam
+  - DOMAIN-SUFFIX,steamcommunity.com,Steam
+  - DOMAIN-SUFFIX,ktvsongcloud.com,DIRECT
+  - DOMAIN-SUFFIX,qun7.com,DIRECT
+  - DOMAIN-SUFFIX,heiyucode.com,DIRECT
+  - DOMAIN-SUFFIX,uuremote.com,DIRECT
+  - DOMAIN-SUFFIX,uuremote.net,DIRECT
+  - DOMAIN-SUFFIX,uu.163.com,DIRECT
+  - DOMAIN-SUFFIX,paypal.com,PayPal
+  - DOMAIN-SUFFIX,paypalobjects.com,PayPal
+  - DOMAIN-SUFFIX,paypal.cn,PayPal
+  - DOMAIN-KEYWORD,paypal,PayPal
+  - RULE-SET,Apple,Apple
+  - RULE-SET,BiliBili,BiliBili
+  - RULE-SET,Netflix,Netflix
+  - RULE-SET,Disney,Disney
+  - RULE-SET,TikTok,TikTok
+  - RULE-SET,GlobalMedia,GlobalMedia
+  - RULE-SET,Telegram,Telegram
+  - RULE-SET,Steam,Steam
+  - RULE-SET,ChinaMax,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,Kuromis
