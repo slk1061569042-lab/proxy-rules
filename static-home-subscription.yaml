@@ -17,7 +17,7 @@ dns:
     - 119.29.29.29
 
 proxies:
-  - name: "🏠 静态家宽(纯净)"
+  - name: "StaticHome"
     type: vless
     server: 38.209.123.80
     port: 51976
@@ -32,10 +32,10 @@ proxies:
       short-id: "14"
 
 proxy-groups:
-  - name: "🏠 静态家宽"
+  - name: "StaticHome"
     type: select
     proxies:
-      - "🏠 静态家宽(纯净)"
+      - "StaticHome"
 
 rules:
   - MATCH,DIRECT
