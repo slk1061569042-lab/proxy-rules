@@ -17,7 +17,7 @@ dns:
     - 119.29.29.29
 
 proxies:
-  - name: "StaticHome"
+  - name: "US-StaticHome-01"
     type: vless
     server: 38.209.123.80
     port: 51976
@@ -32,10 +32,11 @@ proxies:
       short-id: "14"
 
 proxy-groups:
-  - name: "StaticHome"
+  - name: "US-Residential"
     type: select
     proxies:
-      - "StaticHome"
+      - "US-StaticHome-01"
+      - DIRECT
 
 rules:
-  - MATCH,DIRECT
+  - MATCH,US-Residential
