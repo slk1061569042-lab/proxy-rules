@@ -1,121 +1,122 @@
-rules:
-  - DOMAIN-KEYWORD,telegram,Telegram
-  - DOMAIN-KEYWORD,telegra,Telegram
-  - DOMAIN-SUFFIX,t.me,Telegram
-  - IP-CIDR,91.108.0.0/16,Telegram,no-resolve
-  - IP-CIDR,149.154.160.0/20,Telegram,no-resolve
-  - DOMAIN-SUFFIX,whatsapp.com,WhatsApp-UK
-  - DOMAIN-SUFFIX,whatsapp.net,WhatsApp-UK
-  - DOMAIN-SUFFIX,wa.me,WhatsApp-UK
-  - DOMAIN-SUFFIX,whatsapp.cc,WhatsApp-UK
-  - DOMAIN-SUFFIX,whatsapp.info,WhatsApp-UK
-  - DOMAIN-SUFFIX,whatsapp.org,WhatsApp-UK
-  - DOMAIN-SUFFIX,whatsapp.tv,WhatsApp-UK
-  - DOMAIN-SUFFIX,whatsappbrand.com,WhatsApp-UK
-  - DOMAIN,graph.whatsapp.com,WhatsApp-UK
-  - DOMAIN,cdn.whatsapp.net,WhatsApp-UK
-  - DOMAIN,g.whatsapp.net,WhatsApp-UK
-  - DOMAIN,static.whatsapp.net,WhatsApp-UK
-  - DOMAIN,mmg.whatsapp.net,WhatsApp-UK
-  - DOMAIN,dit.whatsapp.net,WhatsApp-UK
-  - DOMAIN-KEYWORD,whatsapp,WhatsApp-UK
-  - DOMAIN-SUFFIX,fbcdn.com,WhatsApp-UK
-  - DOMAIN-SUFFIX,fbcdn.net,WhatsApp-UK
-  - DOMAIN-SUFFIX,fbsbx.com,WhatsApp-UK
-  - DOMAIN-SUFFIX,apple-relay.cloudflare.com,DIRECT
-  - DOMAIN-SUFFIX,apple-relay.apple.com,DIRECT
-  - DOMAIN-SUFFIX,gateway.icloud.com,DIRECT
-  - DOMAIN-SUFFIX,gsa.apple.com,DIRECT
-  - DOMAIN-SUFFIX,identity.apple.com,DIRECT
-  - DOMAIN-SUFFIX,appleid.apple.com,DIRECT
-  - DOMAIN-SUFFIX,iforgot.apple.com,DIRECT
-  - DOMAIN-SUFFIX,setup.icloud.com,DIRECT
-  - DOMAIN-SUFFIX,anthropic.com,Claude
-  - DOMAIN-SUFFIX,claude.ai,Claude
-  - DOMAIN-SUFFIX,claudeusercontent.com,Claude
-  - DOMAIN-KEYWORD,anthropic,Claude
-  - DOMAIN-KEYWORD,claude,Claude
-  - DOMAIN-SUFFIX,aistudio.google.com,Google
-  - DOMAIN-SUFFIX,ai.google.dev,Google
-  - DOMAIN-SUFFIX,generativelanguage.googleapis.com,Google
-  - DOMAIN-SUFFIX,gemini.google.com,Google
-  - DOMAIN-SUFFIX,generativeai.google,Google
-  - DOMAIN-SUFFIX,bard.google.com,Google
-  - DOMAIN-SUFFIX,notebooklm.google.com,Google
-  - DOMAIN-SUFFIX,notebooklm.googleusercontent.com,Google
-  - DOMAIN-SUFFIX,openai.com,OpenAI
-  - DOMAIN-SUFFIX,oaistatic.com,OpenAI
-  - DOMAIN-SUFFIX,oaiusercontent.com,OpenAI
-  - DOMAIN-SUFFIX,chatgpt.com,OpenAI
-  - DOMAIN-SUFFIX,ai.com,OpenAI
-  - DOMAIN-KEYWORD,openai,OpenAI
-  - DOMAIN-SUFFIX,cursor.sh,Proxy
-  - DOMAIN-SUFFIX,cursor.com,Proxy
-  - DOMAIN-KEYWORD,cursor,Proxy
-  - DOMAIN-SUFFIX,midjourney.com,Proxy
-  - DOMAIN-SUFFIX,suno.com,Proxy
-  - DOMAIN-SUFFIX,suno.ai,Proxy
-  - DOMAIN-SUFFIX,huggingface.co,Proxy
-  - DOMAIN-SUFFIX,perplexity.ai,Proxy
-  - DOMAIN-SUFFIX,runwayml.com,Proxy
-  - DOMAIN-SUFFIX,replicate.com,Proxy
-  - DOMAIN-SUFFIX,openrouter.ai,Proxy
-  - DOMAIN-SUFFIX,deepseek.com,Proxy
-  - DOMAIN-SUFFIX,servicewechat.com,DIRECT
-  - DOMAIN-SUFFIX,weixin.qq.com,DIRECT
-  - DOMAIN-SUFFIX,wx.qq.com,DIRECT
-  - DOMAIN-SUFFIX,mp.weixin.qq.com,DIRECT
-  - DOMAIN-SUFFIX,weixinbridge.com,DIRECT
-  - DOMAIN-SUFFIX,wx.gtimg.com,DIRECT
-  - DOMAIN-SUFFIX,wx.qlogo.cn,DIRECT
-  - DOMAIN-SUFFIX,short.weixin.qq.com,DIRECT
-  - DOMAIN-SUFFIX,major.wx.qq.com,DIRECT
-  - DOMAIN-SUFFIX,extshort.weixin.qq.com,DIRECT
-  - DOMAIN-SUFFIX,wxapp.tc.qq.com,DIRECT
-  - DOMAIN-SUFFIX,api.weixin.qq.com,DIRECT
-  - DOMAIN-SUFFIX,dldir1.qq.com,DIRECT
-  - DOMAIN-SUFFIX,minorshort.weixin.qq.com,DIRECT
-  - DOMAIN-SUFFIX,adfilter.imtt.qq.com,DIRECT
-  - DOMAIN-SUFFIX,res.wx.qq.com,DIRECT
-  - DOMAIN-SUFFIX,zjzwfw.gov.cn,DIRECT
-  - DOMAIN-SUFFIX,zj.gov.cn,DIRECT
-  - DOMAIN-SUFFIX,alipay.com,DIRECT
-  - DOMAIN-SUFFIX,alipayobjects.com,DIRECT
-  - DOMAIN-SUFFIX,alicdn.com,DIRECT
-  - DOMAIN-SUFFIX,aliyun.com,DIRECT
-  - DOMAIN-SUFFIX,aliyuncs.com,DIRECT
-  - DOMAIN-SUFFIX,taobao.com,DIRECT
-  - DOMAIN-SUFFIX,tmall.com,DIRECT
-  - DOMAIN-SUFFIX,dingtalk.com,DIRECT
-  - DOMAIN-SUFFIX,seres.cn,DIRECT
-  - DOMAIN-SUFFIX,seres.com.cn,DIRECT
-  - DOMAIN-SUFFIX,seresmotors.com,DIRECT
-  - DOMAIN-SUFFIX,aito.auto,DIRECT
-  - DOMAIN-SUFFIX,sfmc.cn,DIRECT
-  - DOMAIN-SUFFIX,sfrm.cn,DIRECT
-  - DOMAIN-SUFFIX,sfrm.com,DIRECT
-  - DOMAIN-SUFFIX,sfgc.cn,DIRECT
-  - DOMAIN-SUFFIX,sfsc.cn,DIRECT
-  - DOMAIN-SUFFIX,hicar.cn,DIRECT
-  - DOMAIN-SUFFIX,huawei.com,DIRECT
-  - DOMAIN-SUFFIX,huaweicloud.com,DIRECT
-  - DOMAIN-SUFFIX,hicloud.com,DIRECT
-  - DOMAIN-KEYWORD,seres,DIRECT
-  - DOMAIN-KEYWORD,aito,DIRECT
-  - DOMAIN-SUFFIX,steamcontent.com,DIRECT
-  - DOMAIN-SUFFIX,steamstatic.com,DIRECT
-  - DOMAIN-KEYWORD,steamcontent,DIRECT
-  - DOMAIN-KEYWORD,steamcdn,DIRECT
-  - DOMAIN-SUFFIX,store.steampowered.com,Steam
-  - DOMAIN-SUFFIX,steamcommunity.com,Steam
-  - DOMAIN-SUFFIX,ktvsongcloud.com,DIRECT
-  - DOMAIN-SUFFIX,qun7.com,DIRECT
-  - DOMAIN-SUFFIX,heiyucode.com,DIRECT
-  - DOMAIN-SUFFIX,uuremote.com,DIRECT
-  - DOMAIN-SUFFIX,uuremote.net,DIRECT
-  - DOMAIN-SUFFIX,uu.163.com,DIRECT
-  - DOMAIN-SUFFIX,paypal.com,Proxy
-  - DOMAIN-SUFFIX,paypalobjects.com,Proxy
-  - DOMAIN-SUFFIX,paypal.cn,Proxy
-  - DOMAIN-KEYWORD,paypal,Proxy
-  - GEOIP,CN,DIRECT
+     1|rules:
+     2|  - DOMAIN-KEYWORD,telegram,Telegram
+     3|  - DOMAIN-KEYWORD,telegra,Telegram
+     4|  - DOMAIN-SUFFIX,t.me,Telegram
+     5|  - IP-CIDR,91.108.0.0/16,Telegram,no-resolve
+     6|  - IP-CIDR,149.154.160.0/20,Telegram,no-resolve
+     7|  - DOMAIN-SUFFIX,whatsapp.com,WhatsApp
+     8|  - DOMAIN-SUFFIX,whatsapp.net,WhatsApp
+     9|  - DOMAIN-SUFFIX,wa.me,WhatsApp
+    10|  - DOMAIN-SUFFIX,whatsapp.cc,WhatsApp
+    11|  - DOMAIN-SUFFIX,whatsapp.info,WhatsApp
+    12|  - DOMAIN-SUFFIX,whatsapp.org,WhatsApp
+    13|  - DOMAIN-SUFFIX,whatsapp.tv,WhatsApp
+    14|  - DOMAIN-SUFFIX,whatsappbrand.com,WhatsApp
+    15|  - DOMAIN,graph.whatsapp.com,WhatsApp
+    16|  - DOMAIN,cdn.whatsapp.net,WhatsApp
+    17|  - DOMAIN,g.whatsapp.net,WhatsApp
+    18|  - DOMAIN,static.whatsapp.net,WhatsApp
+    19|  - DOMAIN,mmg.whatsapp.net,WhatsApp
+    20|  - DOMAIN,dit.whatsapp.net,WhatsApp
+    21|  - DOMAIN-KEYWORD,whatsapp,WhatsApp
+    22|  - DOMAIN-SUFFIX,fbcdn.com,WhatsApp
+    23|  - DOMAIN-SUFFIX,fbcdn.net,WhatsApp
+    24|  - DOMAIN-SUFFIX,fbsbx.com,WhatsApp
+    25|  - DOMAIN-SUFFIX,apple-relay.cloudflare.com,DIRECT
+    26|  - DOMAIN-SUFFIX,apple-relay.apple.com,DIRECT
+    27|  - DOMAIN-SUFFIX,gateway.icloud.com,DIRECT
+    28|  - DOMAIN-SUFFIX,gsa.apple.com,DIRECT
+    29|  - DOMAIN-SUFFIX,identity.apple.com,DIRECT
+    30|  - DOMAIN-SUFFIX,appleid.apple.com,DIRECT
+    31|  - DOMAIN-SUFFIX,iforgot.apple.com,DIRECT
+    32|  - DOMAIN-SUFFIX,setup.icloud.com,DIRECT
+    33|  - DOMAIN-SUFFIX,anthropic.com,Claude
+    34|  - DOMAIN-SUFFIX,claude.ai,Claude
+    35|  - DOMAIN-SUFFIX,claudeusercontent.com,Claude
+    36|  - DOMAIN-KEYWORD,anthropic,Claude
+    37|  - DOMAIN-KEYWORD,claude,Claude
+    38|  - DOMAIN-SUFFIX,aistudio.google.com,Google
+    39|  - DOMAIN-SUFFIX,ai.google.dev,Google
+    40|  - DOMAIN-SUFFIX,generativelanguage.googleapis.com,Google
+    41|  - DOMAIN-SUFFIX,gemini.google.com,Google
+    42|  - DOMAIN-SUFFIX,generativeai.google,Google
+    43|  - DOMAIN-SUFFIX,bard.google.com,Google
+    44|  - DOMAIN-SUFFIX,notebooklm.google.com,Google
+    45|  - DOMAIN-SUFFIX,notebooklm.googleusercontent.com,Google
+    46|  - DOMAIN-SUFFIX,openai.com,OpenAI
+    47|  - DOMAIN-SUFFIX,oaistatic.com,OpenAI
+    48|  - DOMAIN-SUFFIX,oaiusercontent.com,OpenAI
+    49|  - DOMAIN-SUFFIX,chatgpt.com,OpenAI
+    50|  - DOMAIN-SUFFIX,ai.com,OpenAI
+    51|  - DOMAIN-KEYWORD,openai,OpenAI
+    52|  - DOMAIN-SUFFIX,cursor.sh,Kuromis
+    53|  - DOMAIN-SUFFIX,cursor.com,Kuromis
+    54|  - DOMAIN-KEYWORD,cursor,Kuromis
+    55|  - DOMAIN-SUFFIX,midjourney.com,Kuromis
+    56|  - DOMAIN-SUFFIX,suno.com,Kuromis
+    57|  - DOMAIN-SUFFIX,suno.ai,Kuromis
+    58|  - DOMAIN-SUFFIX,huggingface.co,Kuromis
+    59|  - DOMAIN-SUFFIX,perplexity.ai,Kuromis
+    60|  - DOMAIN-SUFFIX,runwayml.com,Kuromis
+    61|  - DOMAIN-SUFFIX,replicate.com,Kuromis
+    62|  - DOMAIN-SUFFIX,openrouter.ai,Kuromis
+    63|  - DOMAIN-SUFFIX,deepseek.com,Kuromis
+    64|  - DOMAIN-SUFFIX,servicewechat.com,DIRECT
+    65|  - DOMAIN-SUFFIX,weixin.qq.com,DIRECT
+    66|  - DOMAIN-SUFFIX,wx.qq.com,DIRECT
+    67|  - DOMAIN-SUFFIX,mp.weixin.qq.com,DIRECT
+    68|  - DOMAIN-SUFFIX,weixinbridge.com,DIRECT
+    69|  - DOMAIN-SUFFIX,wx.gtimg.com,DIRECT
+    70|  - DOMAIN-SUFFIX,wx.qlogo.cn,DIRECT
+    71|  - DOMAIN-SUFFIX,short.weixin.qq.com,DIRECT
+    72|  - DOMAIN-SUFFIX,major.wx.qq.com,DIRECT
+    73|  - DOMAIN-SUFFIX,extshort.weixin.qq.com,DIRECT
+    74|  - DOMAIN-SUFFIX,wxapp.tc.qq.com,DIRECT
+    75|  - DOMAIN-SUFFIX,api.weixin.qq.com,DIRECT
+    76|  - DOMAIN-SUFFIX,dldir1.qq.com,DIRECT
+    77|  - DOMAIN-SUFFIX,minorshort.weixin.qq.com,DIRECT
+    78|  - DOMAIN-SUFFIX,adfilter.imtt.qq.com,DIRECT
+    79|  - DOMAIN-SUFFIX,res.wx.qq.com,DIRECT
+    80|  - DOMAIN-SUFFIX,zjzwfw.gov.cn,DIRECT
+    81|  - DOMAIN-SUFFIX,zj.gov.cn,DIRECT
+    82|  - DOMAIN-SUFFIX,alipay.com,DIRECT
+    83|  - DOMAIN-SUFFIX,alipayobjects.com,DIRECT
+    84|  - DOMAIN-SUFFIX,alicdn.com,DIRECT
+    85|  - DOMAIN-SUFFIX,aliyun.com,DIRECT
+    86|  - DOMAIN-SUFFIX,aliyuncs.com,DIRECT
+    87|  - DOMAIN-SUFFIX,taobao.com,DIRECT
+    88|  - DOMAIN-SUFFIX,tmall.com,DIRECT
+    89|  - DOMAIN-SUFFIX,dingtalk.com,DIRECT
+    90|  - DOMAIN-SUFFIX,seres.cn,DIRECT
+    91|  - DOMAIN-SUFFIX,seres.com.cn,DIRECT
+    92|  - DOMAIN-SUFFIX,seresmotors.com,DIRECT
+    93|  - DOMAIN-SUFFIX,aito.auto,DIRECT
+    94|  - DOMAIN-SUFFIX,sfmc.cn,DIRECT
+    95|  - DOMAIN-SUFFIX,sfrm.cn,DIRECT
+    96|  - DOMAIN-SUFFIX,sfrm.com,DIRECT
+    97|  - DOMAIN-SUFFIX,sfgc.cn,DIRECT
+    98|  - DOMAIN-SUFFIX,sfsc.cn,DIRECT
+    99|  - DOMAIN-SUFFIX,hicar.cn,DIRECT
+   100|  - DOMAIN-SUFFIX,huawei.com,DIRECT
+   101|  - DOMAIN-SUFFIX,huaweicloud.com,DIRECT
+   102|  - DOMAIN-SUFFIX,hicloud.com,DIRECT
+   103|  - DOMAIN-KEYWORD,seres,DIRECT
+   104|  - DOMAIN-KEYWORD,aito,DIRECT
+   105|  - DOMAIN-SUFFIX,steamcontent.com,DIRECT
+   106|  - DOMAIN-SUFFIX,steamstatic.com,DIRECT
+   107|  - DOMAIN-KEYWORD,steamcontent,DIRECT
+   108|  - DOMAIN-KEYWORD,steamcdn,DIRECT
+   109|  - DOMAIN-SUFFIX,store.steampowered.com,Steam
+   110|  - DOMAIN-SUFFIX,steamcommunity.com,Steam
+   111|  - DOMAIN-SUFFIX,ktvsongcloud.com,DIRECT
+   112|  - DOMAIN-SUFFIX,qun7.com,DIRECT
+   113|  - DOMAIN-SUFFIX,heiyucode.com,DIRECT
+   114|  - DOMAIN-SUFFIX,uuremote.com,DIRECT
+   115|  - DOMAIN-SUFFIX,uuremote.net,DIRECT
+   116|  - DOMAIN-SUFFIX,uu.163.com,DIRECT
+   117|  - DOMAIN-SUFFIX,paypal.com,Kuromis
+   118|  - DOMAIN-SUFFIX,paypalobjects.com,Kuromis
+   119|  - DOMAIN-SUFFIX,paypal.cn,Kuromis
+   120|  - DOMAIN-KEYWORD,paypal,Kuromis
+   121|  - GEOIP,CN,DIRECT
+   122|
