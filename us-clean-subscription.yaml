@@ -1,0 +1,196 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+bind-address: "*"
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+
+dns:
+  enable: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  fallback:
+    - 8.8.8.8
+    - 1.1.1.1
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+
+proxies:
+  - name: "US-Clean"
+    type: vless
+    server: 38.209.123.80
+    port: 51976
+    uuid: b5ef95f9-f80e-4ddc-9166-6690885e948d
+    network: tcp
+    tls: true
+    udp: true
+    client-fingerprint: chrome
+    servername: www.oracle.com
+    reality-opts:
+      public-key: pRP_wngr-71A_6Y3isQYUobhs-MmDYCO5cNZ9WGi5mY
+      short-id: "14"
+
+proxy-groups:
+  - name: "Proxy"
+    type: select
+    proxies:
+      - "US-Clean"
+      - DIRECT
+
+rule-providers:
+  ChinaMax:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml
+    interval: 86400
+    path: "./ruleset/ChinaMax.yaml"
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram_No_Resolve.yaml
+    interval: 86400
+    path: "./ruleset/Telegram.yaml"
+  Steam:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam_No_Resolve.yaml
+    interval: 86400
+    path: "./ruleset/Steam.yaml"
+  GlobalMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical_No_Resolve.yaml
+    interval: 86400
+    path: "./ruleset/GlobalMedia.yaml"
+
+rules:
+  # 微信/QQ → DIRECT
+  - DOMAIN-SUFFIX,servicewechat.com,DIRECT
+  - DOMAIN-SUFFIX,weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,wx.qq.com,DIRECT
+  - DOMAIN-SUFFIX,mp.weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,weixinbridge.com,DIRECT
+  - DOMAIN-SUFFIX,wx.gtimg.com,DIRECT
+  - DOMAIN-SUFFIX,wx.qlogo.cn,DIRECT
+  - DOMAIN-SUFFIX,short.weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,major.wx.qq.com,DIRECT
+  - DOMAIN-SUFFIX,extshort.weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,wxapp.tc.qq.com,DIRECT
+  - DOMAIN-SUFFIX,api.weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,dldir1.qq.com,DIRECT
+  - DOMAIN-SUFFIX,minorshort.weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,adfilter.imtt.qq.com,DIRECT
+  - DOMAIN-SUFFIX,res.wx.qq.com,DIRECT
+  # 支付宝/阿里系 → DIRECT
+  - DOMAIN-SUFFIX,alipay.com,DIRECT
+  - DOMAIN-SUFFIX,alipayobjects.com,DIRECT
+  - DOMAIN-SUFFIX,alicdn.com,DIRECT
+  - DOMAIN-SUFFIX,aliyun.com,DIRECT
+  - DOMAIN-SUFFIX,aliyuncs.com,DIRECT
+  - DOMAIN-SUFFIX,taobao.com,DIRECT
+  - DOMAIN-SUFFIX,tmall.com,DIRECT
+  - DOMAIN-SUFFIX,dingtalk.com,DIRECT
+  # 赛力斯/问界 → DIRECT
+  - DOMAIN-SUFFIX,seres.cn,DIRECT
+  - DOMAIN-SUFFIX,seres.com.cn,DIRECT
+  - DOMAIN-SUFFIX,seresmotors.com,DIRECT
+  - DOMAIN-SUFFIX,aito.auto,DIRECT
+  - DOMAIN-SUFFIX,sfmc.cn,DIRECT
+  - DOMAIN-SUFFIX,sfrm.cn,DIRECT
+  - DOMAIN-SUFFIX,sfrm.com,DIRECT
+  - DOMAIN-SUFFIX,sfgc.cn,DIRECT
+  - DOMAIN-SUFFIX,sfsc.cn,DIRECT
+  - DOMAIN-SUFFIX,hicar.cn,DIRECT
+  - DOMAIN-SUFFIX,huawei.com,DIRECT
+  - DOMAIN-SUFFIX,huaweicloud.com,DIRECT
+  - DOMAIN-SUFFIX,hicloud.com,DIRECT
+  - DOMAIN-KEYWORD,seres,DIRECT
+  - DOMAIN-KEYWORD,aito,DIRECT
+  # 政务 → DIRECT
+  - DOMAIN-SUFFIX,zjzwfw.gov.cn,DIRECT
+  - DOMAIN-SUFFIX,zj.gov.cn,DIRECT
+  # Apple 部分直连
+  - DOMAIN-SUFFIX,apple-relay.cloudflare.com,DIRECT
+  - DOMAIN-SUFFIX,apple-relay.apple.com,DIRECT
+  - DOMAIN-SUFFIX,gateway.icloud.com,DIRECT
+  - DOMAIN-SUFFIX,identity.apple.com,DIRECT
+  - DOMAIN-SUFFIX,appleid.apple.com,DIRECT
+  - DOMAIN-SUFFIX,iforgot.apple.com,DIRECT
+  - DOMAIN-SUFFIX,setup.icloud.com,DIRECT
+  # Siri ChatGPT 扩展必须走代理
+  - DOMAIN-SUFFIX,gsa.apple.com,Proxy
+  # Steam 内容 CDN 直连
+  - DOMAIN-SUFFIX,steamcontent.com,DIRECT
+  - DOMAIN-SUFFIX,steamstatic.com,DIRECT
+  - DOMAIN-KEYWORD,steamcontent,DIRECT
+  - DOMAIN-KEYWORD,steamcdn,DIRECT
+  # 其他工具直连
+  - DOMAIN-SUFFIX,ktvsongcloud.com,DIRECT
+  - DOMAIN-SUFFIX,qun7.com,DIRECT
+  - DOMAIN-SUFFIX,heiyucode.com,DIRECT
+  - DOMAIN-SUFFIX,uuremote.com,DIRECT
+  - DOMAIN-SUFFIX,uuremote.net,DIRECT
+  - DOMAIN-SUFFIX,uu.163.com,DIRECT
+  # Telegram
+  - DOMAIN-KEYWORD,telegram,Proxy
+  - DOMAIN-KEYWORD,telegra,Proxy
+  - DOMAIN-SUFFIX,t.me,Proxy
+  - IP-CIDR,91.108.0.0/16,Proxy,no-resolve
+  - IP-CIDR,149.154.160.0/20,Proxy,no-resolve
+  # AI 工具 → Proxy
+  - DOMAIN-SUFFIX,anthropic.com,Proxy
+  - DOMAIN-SUFFIX,claude.ai,Proxy
+  - DOMAIN-SUFFIX,claudeusercontent.com,Proxy
+  - DOMAIN-KEYWORD,anthropic,Proxy
+  - DOMAIN-KEYWORD,claude,Proxy
+  - DOMAIN-SUFFIX,aistudio.google.com,Proxy
+  - DOMAIN-SUFFIX,ai.google.dev,Proxy
+  - DOMAIN-SUFFIX,generativelanguage.googleapis.com,Proxy
+  - DOMAIN-SUFFIX,gemini.google.com,Proxy
+  - DOMAIN-SUFFIX,generativeai.google,Proxy
+  - DOMAIN-SUFFIX,bard.google.com,Proxy
+  - DOMAIN-SUFFIX,notebooklm.google.com,Proxy
+  - DOMAIN-SUFFIX,notebooklm.googleusercontent.com,Proxy
+  - DOMAIN-SUFFIX,openai.com,Proxy
+  - DOMAIN-SUFFIX,oaistatic.com,Proxy
+  - DOMAIN-SUFFIX,oaiusercontent.com,Proxy
+  - DOMAIN-SUFFIX,chatgpt.com,Proxy
+  - DOMAIN-SUFFIX,ai.com,Proxy
+  - DOMAIN-KEYWORD,openai,Proxy
+  - DOMAIN-SUFFIX,cursor.sh,Proxy
+  - DOMAIN-SUFFIX,cursor.com,Proxy
+  - DOMAIN-KEYWORD,cursor,Proxy
+  - DOMAIN-SUFFIX,midjourney.com,Proxy
+  - DOMAIN-SUFFIX,suno.com,Proxy
+  - DOMAIN-SUFFIX,suno.ai,Proxy
+  - DOMAIN-SUFFIX,huggingface.co,Proxy
+  - DOMAIN-SUFFIX,perplexity.ai,Proxy
+  - DOMAIN-SUFFIX,runwayml.com,Proxy
+  - DOMAIN-SUFFIX,replicate.com,Proxy
+  - DOMAIN-SUFFIX,openrouter.ai,Proxy
+  - DOMAIN-SUFFIX,deepseek.com,Proxy
+  # Steam 商店/社区 → Proxy
+  - DOMAIN-SUFFIX,store.steampowered.com,Proxy
+  - DOMAIN-SUFFIX,steamcommunity.com,Proxy
+  # PayPal → Proxy
+  - DOMAIN-SUFFIX,paypal.com,Proxy
+  - DOMAIN-SUFFIX,paypalobjects.com,Proxy
+  - DOMAIN-SUFFIX,paypal.cn,Proxy
+  - DOMAIN-KEYWORD,paypal,Proxy
+  # Rule-sets
+  - RULE-SET,Telegram,Proxy
+  - RULE-SET,Steam,Proxy
+  - RULE-SET,GlobalMedia,Proxy
+  # 国内大规则集 → DIRECT
+  - RULE-SET,ChinaMax,DIRECT
+  # 兜底：中国 IP → DIRECT
+  - GEOIP,CN,DIRECT
+  # 其余全走代理
+  - MATCH,Proxy
